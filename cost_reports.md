@@ -73,19 +73,13 @@ The relationship between these terms is represented in the formula:
 
 ### Workload Rightsizing Report
 
-{{% infobox type="note" %}}
-This feature is currently in beta.
-{{% /infobox %}}
-
 Workload Rightsizing Reports optimize resource allocation for Kubernetes workloads by comparing actual resource usage (CPU and memory) of containers within those workloads against historical usage. These reports help identify opportunities to downsize or upsize workloads based on real usage patterns, reducing resource waste and improving performance.
 
 By default, rightsizing recommendations are grouped by `kube_cluster_name`, `kube_namespace_name`, and `kube_workload_name`. This grouping reflects how CPU and memory resources are allocated in Kubernetes (at the workload level) and cannot be modified.
 
 To refine the scope of the report, you can configure a scope using workload labels only. This concentrates focus on specific workloads or subsets of workloads.
 
-{{% infobox type="note" %}}
 Rightsizing recommendations are based on usage data collected across the full time window. If you narrow the scope by adding extra labels, you might exclude some containers from the analysis, which can lead to inaccurate or incomplete recommendations if the label was applied inconsistently or only to a subset of containers.
-{{% /infobox %}}
 
 #### Algorithms
 When you define the report, you can choose from these algorithms to determine how CPU and memory usage data is interpreted to generate rightsizing recommendations:
